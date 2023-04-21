@@ -21,7 +21,12 @@ def repeat():
         elif response == fb[0]:
             i = 11
         else:
-            user_guess = int(input("Guess the number:\n"))
+            user_guess = 0
+            try:
+                user_guess = int(input("Guess the number:\n"))
+            except ValueError:
+                print("Please enter a valid integer")
+
             if user_guess == x:
                 response = fb[0]
                 print(response)
@@ -61,7 +66,7 @@ def repeat():
                             response = "You are getting closer! Try a bigger number"
                             print(response)
                     elif 5 >= i > 2 and xtype == 0:
-                        global xg1
+                        xg1 = x % 3
                         if response == fb[1] or response == fb[3]:
                             response = "getting further! here is a hint: it is an even number!"
                             print(response)
